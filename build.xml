@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="simulation" basedir="." default="jar">
+    <property name="src.dir" value="src"/>
+    <property name="bin.dir" value="bin"/>
+    <target name="clean" description="Delete all generated files">
+        <delete dir="bin"/>
+        <delete file="simulations.jar"/>
+    </target>
+
+    <target name="compile" description="Compiles the Task">
+        <javac srcdir="src" destdir="bin"/>
+    </target>
+
+    <target name="jar" description="JARs the Task">
+        <jar destfile="simulation.jar" basedir="bin"/>
+    </target>
+
+</project>
