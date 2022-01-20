@@ -7,7 +7,7 @@
     
     <target name="clean" description="Delete all generated files">
         <delete dir="bin"/>
-        <delete file="simulations.jar"/>
+        <delete dir="jar"/>
     </target>
 
     <target name="compile" description="Compiles the Task">

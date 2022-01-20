@@ -1,0 +1,26 @@
+Personne :
+    Electeurs : 
+        représentés par des préférences sur différents axes entre 0 et 1
+            Faire une classe axe ???
+
+    Candidat :
+        Représenté par des axes aussi
+
+Scrutin : (les scrutins vont hérites de cette classe abstraite et faire du polymorphisme)
+    Scrutin majoritaire à un tour
+    Scrutin majoritaire à 2 tours
+    vote par approbation
+    vote alternatiif
+    méthode de borda
+
+Interractions socio politiques : 
+    Pendant t temps, on modifie les Electeurs en les faisant cotoyer un autre Electeurs ou Candidat aleatoire (distance entre les 2 vecteurs meme s'il y a des extremes)
+        Si il est proche de ses opinions il s'en rapproche
+        sinon  il s'en eloigne
+
+Sondages : 
+    pendant t temps on modifie les positions en fonction du resultat 
+        se déplacer vers le plus proche de ses opinions parmi les n premiers du Sondage
+        calcul d'une utilité pour chaque candidat (interressant ca)
+            -> se déplacer vers le plus utile
+            -> se déplacer de maniere proportionnelle vers plusieurs candidats.
