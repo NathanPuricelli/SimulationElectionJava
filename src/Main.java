@@ -1,8 +1,20 @@
-import Person.Person;
+import java.util.Vector;
+import java.io.IOException;
+import java.util.Map;
+
+import Person.Candidat;
+import Person.Electeur;
 public class Main {
-    public static void main(String[] args){
-        Person p = new Person();
-        System.out.println("Le début du projet. On va déja régler l'arborescence.");
-        p.aff();
+
+    private Vector<Electeur> liste_electeur;
+    private Vector<Candidat> liste_candidat;
+
+    public static void main(String[] args) throws IOException{
+        //ReadConfig properties = new ReadConfig();
+        //Map<String, Float> map = properties.getPropValues();
+        Electeur e = new Electeur();
+        System.out.println("Le début du projet.");
+        e.afficherOpinions();
     }
+
 }
