@@ -16,7 +16,7 @@ public class ReadConfig {
 			Properties prop = new Properties();
 			String propFileName = "config.properties";
  
-			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
+			inputStream = getClass().getResourceAsStream(propFileName);
  
 			if (inputStream != null) {
 				prop.load(inputStream);

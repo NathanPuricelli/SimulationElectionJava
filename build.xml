@@ -3,6 +3,7 @@
     <property name="src.dir" value="src"/>
     <property name="bin.dir" value="bin"/>
     <property name="jar.dir" value="jar"/>
+    <property name="config.file" value="config.properties" />
     <property name="main-class"  value="Main"/>
     
     <target name="clean" description="Delete all generated files">
@@ -12,6 +13,7 @@
 
     <target name="compile" description="Compiles the Task">
         <mkdir dir="${bin.dir}"/>
+        <copy file="${config.file}" todir="${bin.dir}"/>
         <javac encoding="UTF-8" srcdir="src" destdir="bin"/>
     </target>
 
