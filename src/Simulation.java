@@ -1,6 +1,7 @@
 import java.util.Vector;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Scanner;
 
 import Person.Candidat;
 import Person.Electeur;
@@ -33,7 +34,28 @@ public class Simulation {
     }
 
     public void simuler(){
-        this.afficherCandidats();
+        int choixAction=-1;
+        boolean running=true;
+        Scanner scan = new Scanner(System.in);
+        do {
+            System.out.println("\t\tBienvenue dans la simulation élection : ");
+            System.out.println("Choisissez une action à réalier : ");
+            System.out.println("\t1 : Affichage des candidats");
+            System.out.println("\t0 : Quitter la simulation");
+            choixAction = scan.nextInt();
+        } while (choixAction != 0 && choixAction!=1);
+        scan.close();
+        switch (choixAction) {
+            case 1:
+                this.afficherCandidats();
+                break;
+
+            case 0:
+                break;
+        
+            default:
+                break;
+        }
     }
 
     private void afficherCandidats(){
