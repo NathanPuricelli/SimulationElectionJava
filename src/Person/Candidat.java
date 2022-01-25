@@ -13,4 +13,8 @@ public class Candidat extends Person {
         Nationalisme = new Political_axis(p_nationalisme);
         Capitalisme = new Political_axis(p_capitalisme);                        
     }
+
+    public Candidat(){
+        super();
+    }
 }
