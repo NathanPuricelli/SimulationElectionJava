@@ -1,3 +1,7 @@
+/**
+ * @author Nathan Puricelli et Aymeric Leto
+ * Fichier principal de la classe traitant la simulation
+ */
 import java.util.Vector;
 
 import Personnes.Candidat;
@@ -7,8 +11,11 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
-
+/**
+ * @class Cette classe est la classe qui gère la simulation.
+ */
 public class Simulation {
+    /// Liste des electeurs sous forme de Java vector (tableau dynamique)
     private Vector<Electeur> liste_electeur;
     private Vector<Candidat> liste_candidat;
     private int nbElecteurs;
