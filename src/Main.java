@@ -1,4 +1,8 @@
 import java.io.IOException;
+/**
+ * <b>Classe principale du programme appelée lors de l'execution
+ * @author Nathan Puricelli
+ */
 public class Main {
 
     public static void main(String[] args){       

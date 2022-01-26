@@ -1,4 +1,4 @@
-package Person;
+package Personnes;
 
 public class Political_axis {
     private float value;

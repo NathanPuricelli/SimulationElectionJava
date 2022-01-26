@@ -1,10 +1,11 @@
 import java.util.Vector;
+
+import Personnes.Candidat;
+import Personnes.Electeur;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
-
-import Person.Candidat;
-import Person.Electeur;
 
 
 public class Simulation {
@@ -35,9 +36,9 @@ public class Simulation {
 
     public void simuler(){
         int choixAction=-1;
-        boolean running=true;
         Scanner scan = new Scanner(System.in);
         do {
+            Simulation.clrscr();
             System.out.println("\t\tBienvenue dans la simulation élection : ");
             System.out.println("Choisissez une action à réalier : ");
             System.out.println("\t1 : Affichage des candidats");
@@ -62,5 +63,15 @@ public class Simulation {
         for(int i = 0; i< this.nbCandidats; i++){
             liste_candidat.elementAt(i).afficherOpinions();
         }
+    }
+
+    public static void clrscr(){
+        //Clears Screen in java
+        try {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (IOException | InterruptedException ex) {}
     }
 }

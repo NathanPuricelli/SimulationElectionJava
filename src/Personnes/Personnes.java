@@ -1,6 +1,6 @@
-package Person;
+package Personnes;
 
-abstract class Person {
+abstract class Personnes {
     protected Political_axis Reformisme;//Revolution(0) ou Reformisme(1)
     protected Political_axis Productivisme; //Ecologie(0) ou productivisme(1) 
     protected Political_axis Conservatisme;//Progressisme(0) ou conservatisme(1)
@@ -8,7 +8,7 @@ abstract class Person {
     protected Political_axis Nationalisme;// Internationalisme (0) ou nationalisme(1)
     protected Political_axis Capitalisme; //Communisme(0) ou capitalisme(1)
 
-    public Person(){
+    public Personnes(){
         Reformisme = new Political_axis();
         Productivisme = new Political_axis();
         Conservatisme = new Political_axis();

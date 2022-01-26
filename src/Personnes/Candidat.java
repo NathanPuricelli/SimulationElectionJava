@@ -1,6 +1,6 @@
-package Person;
+package Personnes;
 
-public class Candidat extends Person {
+public class Candidat extends Personnes {
 
     //public float popularite; // Cette valeur sera a entre O et 1. 1 par défaut, peut etre jouer dans les sondages plus tard.
     
