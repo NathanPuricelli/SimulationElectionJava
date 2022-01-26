@@ -3,12 +3,14 @@
     <property name="src.dir" value="src"/>
     <property name="bin.dir" value="bin"/>
     <property name="jar.dir" value="jar"/>
+    <property name="doc.dir" value="doc"/>
     <property name="config.file" value="config.properties" />
     <property name="main-class"  value="Main"/>
     
     <target name="clean" description="Delete all generated files">
-        <delete dir="bin"/>
-        <delete dir="jar"/>
+        <delete dir="${bin.dir}"/>
+        <delete dir="${jar.dir}"/>
+        <delete dir="${doc.dir}"/>
     </target>
 
     <target name="compile" description="Compiles the Task">
@@ -28,6 +30,17 @@
 
     <target name="run" depends="jar">
         <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="documentation">
+        <delete dir="${doc.dir}"/>
+        <javadoc sourcepath="${doc.dir}" destdir="${doc.dir}">
+            <fileset dir="."/>
+            <doctitle>Test</doctitle>
+            <bottom>
+                <![CDATA[<i>Nathan Puricelli et Aymeric Leto. </i>]]>
+            </bottom>
+        </javadoc>
     </target>
 
     <target name="main" depends="clean,run"/>
