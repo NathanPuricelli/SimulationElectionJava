@@ -25,4 +25,11 @@ abstract class Personnes {
         System.out.println("Nationalisme : " + Nationalisme.getValue());
         System.out.println("Capitalisme : " + Capitalisme.getValue());
     }
+
+    public Political_axis getReformisme(){return this.Reformisme;}
+    public Political_axis getProductivisme(){return this.Productivisme;}
+    public Political_axis getConservatisme(){return this.Conservatisme;}
+    public Political_axis getJustice(){return this.Justice;}
+    public Political_axis getNationalisme(){return this.Nationalisme;}
+    public Political_axis getCapitalisme(){return this.Capitalisme;}
 }
