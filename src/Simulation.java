@@ -71,8 +71,9 @@ public class Simulation {
     }
 
     private void afficherCandidats(){
-        for(int i = 0; i< this.nbCandidats; i++){
-            liste_candidats.elementAt(i).afficherOpinions();
+        for(Candidat c : liste_candidats){
+            c.afficherOpinions();
+            System.out.println();
         }
         int choixAction=-1;
         System.out.println("\t1 : Retour au Menu");

@@ -8,18 +8,18 @@ public class ScrutinMajoritaireA1Tour extends Scrutin{
     public ResultatScrutin voter(Vector<Electeur> liste_electeurs,  Vector<Candidat> liste_candidats){
         ResultatScrutin resultat = new ResultatScrutin(liste_candidats);
         for (Electeur e : liste_electeurs){
-            System.out.println("On ajoute un vote wallah");
             Candidat c = this.getVoteElecteur(e, liste_candidats);
             if (c == null) {
                 resultat.ajouterVoteBlanc();
-                System.out.println("On ajoute un vote blanco wallah");
+                System.out.println("Blanc");
             }
             else {
-                resultat.ajouterVote(c.getID());
-                System.out.println("On ajoute un vote");
+                resultat.ajouterVote(c);
+                System.out.println("Vote");
 
             }
         }
+        resultat.remplirClassement();
 
         return resultat;        
     }

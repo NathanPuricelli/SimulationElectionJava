@@ -9,13 +9,17 @@ public class Candidat extends Personnes {
     //public float popularite; // Cette valeur sera a entre O et 1. 1 par défaut, peut etre jouer dans les sondages plus tard.
     
     public Candidat(float p_reformisme, float p_productivisme, float p_conservatisme,
-                    float p_justice, float p_nationalisme, float p_capitalisme){
-        Reformisme = new Axe_politique(p_reformisme);
-        Productivisme = new Axe_politique(p_productivisme);
-        Conservatisme = new Axe_politique(p_conservatisme);
-        Justice = new Axe_politique(p_justice);
-        Nationalisme = new Axe_politique(p_nationalisme);
-        Capitalisme = new Axe_politique(p_capitalisme);                        
+                    float p_justice, float p_nationalisme, float p_capitalisme, String p_nom){
+        this.Reformisme = new Axe_politique(p_reformisme);
+        this.Productivisme = new Axe_politique(p_productivisme);
+        this.Conservatisme = new Axe_politique(p_conservatisme);
+        this.Justice = new Axe_politique(p_justice);
+        this.Nationalisme = new Axe_politique(p_nationalisme);
+        this.Capitalisme = new Axe_politique(p_capitalisme);
+        this.nom = p_nom;
+        this.id = Candidat.identifiant;
+        Candidat.identifiant++;
+                                
     }
 
     public void afficherOpinions(){

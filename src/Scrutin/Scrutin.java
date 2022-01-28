@@ -1,5 +1,7 @@
 package Scrutin;
 import Personnes.*;
+
+import java.util.Map;
 import java.util.Vector;
 
 public abstract class Scrutin {
@@ -8,10 +10,13 @@ public abstract class Scrutin {
     public void afficherResultats(ResultatScrutin res, Vector<Candidat> liste_candidats )
     {
         System.out.println("\tRésultat de l'élection \n");
-        for(int i = 0; i<res.getResultat().size(); i++){
-            System.out.println("Candidat : " + i + " : " + res.getResultat().get(i+1) + " Votes");
+
+        for(Map.Entry<Integer, Candidat> entry : res.getClassement().entrySet()){
+            System.out.println(entry.getValue().getNom() + " : " + res.getResultat().get(entry.getValue()) + " Votes");
         }
-        System.out.println("Votes blanc : " + res.getNbVotesBlanc());
+        if(res.getNbVotesBlanc()>0){System.out.println("Nombre de votes blanc : " + res.getNbVotesBlanc());}        
+
+    
         int choixAction=-1;
         System.out.println("\t1 : Retour au Menu");
         System.out.println("\t0 : Quitter la simulation");
