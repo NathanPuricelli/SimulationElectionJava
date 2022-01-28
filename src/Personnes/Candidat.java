@@ -10,12 +10,18 @@ public class Candidat extends Personnes {
     
     public Candidat(float p_reformisme, float p_productivisme, float p_conservatisme,
                     float p_justice, float p_nationalisme, float p_capitalisme){
-        Reformisme = new Political_axis(p_reformisme);
-        Productivisme = new Political_axis(p_productivisme);
-        Conservatisme = new Political_axis(p_conservatisme);
-        Justice = new Political_axis(p_justice);
-        Nationalisme = new Political_axis(p_nationalisme);
-        Capitalisme = new Political_axis(p_capitalisme);                        
+        Reformisme = new Axe_politique(p_reformisme);
+        Productivisme = new Axe_politique(p_productivisme);
+        Conservatisme = new Axe_politique(p_conservatisme);
+        Justice = new Axe_politique(p_justice);
+        Nationalisme = new Axe_politique(p_nationalisme);
+        Capitalisme = new Axe_politique(p_capitalisme);                        
+    }
+
+    public void afficherOpinions(){
+        System.out.println("\tCandidat numéro : " + this.id);
+        System.out.println("\tNom candidat : " + this.nom);
+        super.afficherOpinions();
     }
 
     public Candidat(){

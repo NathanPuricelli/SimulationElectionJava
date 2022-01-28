@@ -1,13 +1,13 @@
 package Personnes;
 
-public class Political_axis {
+public class Axe_politique {
     private float value;
 
-    public Political_axis(){
+    public Axe_politique(){
         this.value = (float)Math.random();
     }
 
-    public Political_axis(float value){
+    public Axe_politique(float value){
         this.value = value;
     }
 

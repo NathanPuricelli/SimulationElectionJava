@@ -1,20 +1,20 @@
 package Personnes;
 
 abstract class Personnes {
-    protected Political_axis Reformisme;//Revolution(0) ou Reformisme(1)
-    protected Political_axis Productivisme; //Ecologie(0) ou productivisme(1) 
-    protected Political_axis Conservatisme;//Progressisme(0) ou conservatisme(1)
-    protected Political_axis Justice; // Justice réhabilitative (0) ou punitive(1) 
-    protected Political_axis Nationalisme;// Internationalisme (0) ou nationalisme(1)
-    protected Political_axis Capitalisme; //Communisme(0) ou capitalisme(1)
+    protected Axe_politique Reformisme;//Revolution(0) ou Reformisme(1)
+    protected Axe_politique Productivisme; //Ecologie(0) ou productivisme(1) 
+    protected Axe_politique Conservatisme;//Progressisme(0) ou conservatisme(1)
+    protected Axe_politique Justice; // Justice réhabilitative (0) ou punitive(1) 
+    protected Axe_politique Nationalisme;// Internationalisme (0) ou nationalisme(1)
+    protected Axe_politique Capitalisme; //Communisme(0) ou capitalisme(1)
 
     public Personnes(){
-        Reformisme = new Political_axis();
-        Productivisme = new Political_axis();
-        Conservatisme = new Political_axis();
-        Justice = new Political_axis();
-        Nationalisme = new Political_axis();
-        Capitalisme = new Political_axis();
+        Reformisme = new Axe_politique();
+        Productivisme = new Axe_politique();
+        Conservatisme = new Axe_politique();
+        Justice = new Axe_politique();
+        Nationalisme = new Axe_politique();
+        Capitalisme = new Axe_politique();
     }
 
     public void afficherOpinions(){
@@ -26,10 +26,10 @@ abstract class Personnes {
         System.out.println("Capitalisme : " + Capitalisme.getValue());
     }
 
-    public Political_axis getReformisme(){return this.Reformisme;}
-    public Political_axis getProductivisme(){return this.Productivisme;}
-    public Political_axis getConservatisme(){return this.Conservatisme;}
-    public Political_axis getJustice(){return this.Justice;}
-    public Political_axis getNationalisme(){return this.Nationalisme;}
-    public Political_axis getCapitalisme(){return this.Capitalisme;}
+    public Axe_politique getReformisme(){return this.Reformisme;}
+    public Axe_politique getProductivisme(){return this.Productivisme;}
+    public Axe_politique getConservatisme(){return this.Conservatisme;}
+    public Axe_politique getJustice(){return this.Justice;}
+    public Axe_politique getNationalisme(){return this.Nationalisme;}
+    public Axe_politique getCapitalisme(){return this.Capitalisme;}
 }

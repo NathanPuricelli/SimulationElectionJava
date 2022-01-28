@@ -20,8 +20,8 @@ public class ReadConfig {
 	 * @return Map<String, Float> : Ensemble de données type key:value
 	 * @throws IOException
 	 */
-	public Map<String, Float> getPropValues() throws IOException {
-        Map<String, Float> map = new HashMap<>();
+	public Map<String, String> getPropValues() throws IOException {
+        Map<String, String> map = new HashMap<>();
 		try {
 			Properties prop = new Properties();
 			String propFileName = "config.properties";
@@ -34,13 +34,9 @@ public class ReadConfig {
 				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
 			}
 			// get the property value and print it out
-			int nombreElecteurs = Integer.parseInt(prop.getProperty("nombreElecteurs"));
-            map.put("nombreElecteurs", (float)nombreElecteurs);
-			int nombreCandidats = Integer.parseInt(prop.getProperty("nombreCandidats"));
-            map.put("nombreCandidats", (float)nombreCandidats);
+            map.put("nombreElecteurs", prop.getProperty("nombreElecteurs"));
+            map.put("nombreCandidats", prop.getProperty("nombreCandidats"));
  
-			
-			System.out.println(map);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		} finally {

@@ -10,7 +10,6 @@ import Scrutin.*;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * @class Cette classe est la classe qui gère la simulation.
@@ -25,11 +24,9 @@ public class Simulation {
     public Simulation() throws IOException{
         ReadConfig properties = new ReadConfig(); //Classe pour la lecture du fichier de configuration
         
-        Map<String, Float> map = properties.getPropValues(); // Données du fichier de configuration
-        float nombreElecteurs = map.get("nombreElecteurs");
-        float nombreCandidats = map.get("nombreCandidats");
-        this.nbCandidats = (int)nombreCandidats;
-        this.nbElecteurs = (int)nombreElecteurs;
+        Map<String, String> map = properties.getPropValues(); // Données du fichier de configuration
+        this.nbElecteurs = Integer.parseInt(map.get("nombreElecteurs"));
+        this.nbCandidats = Integer.parseInt(map.get("nombreCandidats"));
         this.liste_candidats = new Vector<Candidat>();
         this.liste_electeur = new Vector<Electeur>();
 
