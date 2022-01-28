@@ -12,12 +12,12 @@ public class Electeur extends Personnes {
     public float getDistanceFromOtherPerson(Personnes pers){
         
         float distance = 0;
-        distance += Math.pow(this.Capitalisme.getValue() - pers.Capitalisme.getValue(), 2);
-        distance += Math.pow(this.Conservatisme.getValue() - pers.Conservatisme.getValue(), 2);
-        distance += Math.pow(this.Reformisme.getValue() - pers.Reformisme.getValue(), 2);
-        distance += Math.pow(this.Justice.getValue() - pers.Justice.getValue(), 2);
-        distance += Math.pow(this.Nationalisme.getValue() - pers.Nationalisme.getValue(), 2);
-        distance += Math.pow(this.Productivisme.getValue() - pers.Productivisme.getValue(), 2);
+        distance += Math.pow(this.Capitalisme.getValue() - pers.getCapitalisme().getValue(), 2);
+        distance += Math.pow(this.Conservatisme.getValue() - pers.getConservatisme().getValue(), 2);
+        distance += Math.pow(this.Reformisme.getValue() - pers.getReformisme().getValue(), 2);
+        distance += Math.pow(this.Justice.getValue() - pers.getJustice().getValue(), 2);
+        distance += Math.pow(this.Nationalisme.getValue() - pers.getNationalisme().getValue(), 2);
+        distance += Math.pow(this.Productivisme.getValue() - pers.getProductivisme().getValue(), 2);
         distance = (float)Math.sqrt(distance);
         return distance;
 

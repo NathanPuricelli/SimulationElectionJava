@@ -61,17 +61,25 @@ public class Simulation {
                 break;
 
             case 0:
+                System.exit(0);
                 break;
         
             default:
                 break;
         }
+        this.simuler();
     }
 
     private void afficherCandidats(){
         for(int i = 0; i< this.nbCandidats; i++){
             liste_candidats.elementAt(i).afficherOpinions();
         }
+        int choixAction=-1;
+        System.out.println("\t1 : Retour au Menu");
+        System.out.println("\t0 : Quitter la simulation");
+        choixAction = Integer.parseInt(System.console().readLine());
+        if (choixAction != 1){System.exit(0);}
+
     }
 
     public void election(){

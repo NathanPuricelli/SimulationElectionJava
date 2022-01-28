@@ -9,10 +9,14 @@ public abstract class Scrutin {
     {
         System.out.println("\tRésultat de l'élection \n");
         for(int i = 0; i<res.getResultat().size(); i++){
-            System.out.print(i);
-            System.out.print(" : ");
-            System.out.print(res.getResultat().get(i));
+            System.out.println("Candidat : " + i + " : " + res.getResultat().get(i+1) + " Votes");
         }
+        System.out.println("Votes blanc : " + res.getNbVotesBlanc());
+        int choixAction=-1;
+        System.out.println("\t1 : Retour au Menu");
+        System.out.println("\t0 : Quitter la simulation");
+        choixAction = Integer.parseInt(System.console().readLine());
+        if (choixAction != 1){System.exit(0);}
     }
 
     
