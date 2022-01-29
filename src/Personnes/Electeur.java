@@ -1,9 +1,15 @@
 package Personnes;
 
 public class Electeur extends Personnes {
+    private static int identifiant = 1;
+    private int id;
     
-    protected void fill(){
+    public Electeur(){
+        super();
+        this.id = Electeur.identifiant;
+        Electeur.identifiant++;
     }
+
 
     /**
      * Calcule la distance entre les opinions de deux personnes

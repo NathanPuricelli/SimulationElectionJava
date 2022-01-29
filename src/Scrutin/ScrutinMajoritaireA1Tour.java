@@ -11,11 +11,9 @@ public class ScrutinMajoritaireA1Tour extends Scrutin{
             Candidat c = this.getVoteElecteur(e, liste_candidats);
             if (c == null) {
                 resultat.ajouterVoteBlanc();
-                System.out.println("Blanc");
             }
             else {
                 resultat.ajouterVote(c);
-                System.out.println("Vote");
 
             }
         }
@@ -31,7 +29,7 @@ public class ScrutinMajoritaireA1Tour extends Scrutin{
                 meilleur = c;
             }
         }
-        if(e.getDistanceFromOtherPerson(meilleur) > 1.5 ) { // La valeur 0.75 est une valeur arbitraire cohérente pour le taux d'abstention
+        if(e.getDistanceFromOtherPerson(meilleur) > 1.5 ) { // La valeur 1.5 est une valeur arbitraire cohérente pour le taux d'abstention
             meilleur = null;
         }
         return meilleur;

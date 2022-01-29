@@ -91,12 +91,16 @@ public class Simulation {
             System.out.println("\t\tBienvenue dans la simulation élection : ");
             System.out.println("Choisissez le type d'élection : ");
             System.out.println("\t1 : Scrutin majoritaire à 1 tour");
+            System.out.println("\t2 : Scrutin majoritaire à 2 tours");
             System.out.println("\t0 : Quitter la simulation");
             choixAction = Integer.parseInt(System.console().readLine());
-        } while (choixAction != 0 && choixAction!=1);
+        } while (choixAction != 0 && choixAction!=1 && choixAction!=2);
         switch (choixAction) {
             case 1:
                 s = new ScrutinMajoritaireA1Tour();
+                break;
+            case 2:
+                s = new ScrutinMajoritaireA2Tours();
                 break;
 
             case 0:
