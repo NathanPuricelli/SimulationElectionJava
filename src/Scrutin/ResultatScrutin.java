@@ -12,6 +12,7 @@ public class ResultatScrutin {
     private Map<Candidat, Integer> resultat;
     private int nbVotesBlanc;
     private Map<Integer,Candidat> classement; // classement des candidarts avec le mapping : Candidat ID, Classement
+    private Candidat vainqueurAlternatif;
 
     public ResultatScrutin(Vector<Candidat> liste_candidats){
         this.resultat = new HashMap<Candidat, Integer>();
@@ -49,13 +50,14 @@ public class ResultatScrutin {
             place++;
             res2.remove(max);
             restants.remove(max);
-            System.out.println(this.classement);
         }
     }
 
     public Map<Candidat, Integer> getResultat(){return this.resultat;}
     public Map<Integer, Candidat> getClassement(){return this.classement;}
     public int getNbVotesBlanc(){return this.nbVotesBlanc;}
+    public void setVainqueurAlternatif(Candidat c) {this.vainqueurAlternatif = c;}
+    public Candidat getVainqueurAlternatif(){return this.vainqueurAlternatif;}
 
     
 }

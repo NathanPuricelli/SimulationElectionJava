@@ -93,9 +93,10 @@ public class Simulation {
             System.out.println("\t1 : Scrutin majoritaire à 1 tour");
             System.out.println("\t2 : Scrutin majoritaire à 2 tours");
             System.out.println("\t3 : Vote par approbation");
+            System.out.println("\t4 : Vote Alternatif");
             System.out.println("\t0 : Quitter la simulation");
             choixAction = Integer.parseInt(System.console().readLine());
-        } while (choixAction != 0 && choixAction!=1 && choixAction!=2 && choixAction!=3);
+        } while (choixAction != 0 && choixAction!=1 && choixAction!=2 && choixAction!=3 && choixAction!=4);
         switch (choixAction) {
             case 1:
                 s = new ScrutinMajoritaireA1Tour();
@@ -105,6 +106,9 @@ public class Simulation {
                 break;
             case 3:
                 s = new ScrutinApprobation();
+                break;
+            case 4:
+                s = new ScrutinAlternatif();
                 break;
 
             case 0:
@@ -117,8 +121,7 @@ public class Simulation {
         }
         if (s == null){return;} // Si on arrete le programme (scrutin n'est pas initialisé, on sort de la fonction)
         ResultatScrutin result = s.voter(this.liste_electeur, this.liste_candidats);
-        s.afficherResultats(result, this.liste_candidats);
-        System.out.println(s.getClass());        
+        s.afficherResultats(result, this.liste_candidats);       
     }
 
     public static void clrscr(){
