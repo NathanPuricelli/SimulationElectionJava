@@ -94,9 +94,10 @@ public class Simulation {
             System.out.println("\t2 : Scrutin majoritaire à 2 tours");
             System.out.println("\t3 : Vote par approbation");
             System.out.println("\t4 : Vote Alternatif");
+            System.out.println("\t5 : Vote méthode de Borda");
             System.out.println("\t0 : Quitter la simulation");
             choixAction = Integer.parseInt(System.console().readLine());
-        } while (choixAction != 0 && choixAction!=1 && choixAction!=2 && choixAction!=3 && choixAction!=4);
+        } while (choixAction != 0 && choixAction!=1 && choixAction!=2 && choixAction!=3 && choixAction!=4 && choixAction!=5);
         switch (choixAction) {
             case 1:
                 s = new ScrutinMajoritaireA1Tour();
@@ -109,6 +110,9 @@ public class Simulation {
                 break;
             case 4:
                 s = new ScrutinAlternatif();
+                break;
+            case 5:
+                s = new ScrutinBorda();
                 break;
 
             case 0:

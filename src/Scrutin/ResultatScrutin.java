@@ -30,6 +30,11 @@ public class ResultatScrutin {
         this.resultat.replace(c, oldvalue+1);
     }
 
+    public void ajouterNVote(int n, Candidat c){
+        int oldvalue = this.resultat.get(c);
+        this.resultat.replace(c, oldvalue+n);
+    }
+
     public void remplirClassement(){
         int place = 1;
         Map<Candidat, Integer> res2 = new HashMap<>(this.resultat);
