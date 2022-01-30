@@ -15,8 +15,8 @@ public class ReadConfig {
 	InputStream inputStream;
 	/**
 	 * Fonction accédant et retournant les configurations de la simulation
-	 * @return Map<String, Float> : Ensemble de données type key:value
-	 * @throws IOException
+	 * @return Ensemble de données type key:value
+	 * @throws IOException Exception si le fichier n'est pas trouvé
 	 */
 	public Map<String, String> getPropValues() throws IOException {
         Map<String, String> map = new HashMap<>(); // Assotiation de key / values du fichier de properties.

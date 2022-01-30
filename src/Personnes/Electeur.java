@@ -27,6 +27,7 @@ public class Electeur extends Personnes {
      * Calcule la distance entre les opinions de deux personnes
      * Se base sur la norme 2 en dimension 6
      * @param pers Personne avec laquelle la distance est mesurée
+     * @return Distance entre 2 personnes
      */
     public float getDistanceFromOtherPerson(Personnes pers){
         

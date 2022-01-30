@@ -2,14 +2,12 @@
 <project name="simulation" basedir="." default="main">
     <property name="src.dir" value="src"/>
     <property name="bin.dir" value="bin"/>
-    <property name="jar.dir" value="jar"/>
     <property name="doc.dir" value="doc"/>
     <property name="config.file" value="config.properties" />
     <property name="main-class"  value="Main"/>
     
     <target name="clean" description="Delete all generated files">
         <delete dir="${bin.dir}"/>
-        <delete dir="${jar.dir}"/>
         <delete dir="${doc.dir}"/>
     </target>
 
@@ -17,19 +15,6 @@
         <mkdir dir="${bin.dir}"/>
         <copy file="${config.file}" todir="${bin.dir}"/>
         <javac encoding="UTF-8" srcdir="src" destdir="bin"/>
-    </target>
-
-    <target name="jar" depends = "compile" description="JARs the Task">
-        <mkdir dir="${jar.dir}"/>
-        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${bin.dir}">
-            <manifest>
-                <attribute name="Main-Class" value="${main-class}"/>
-            </manifest>
-        </jar>
-    </target>
-
-    <target name="run" depends="jar">
-        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
 
     <target name="documentation">
@@ -43,6 +28,6 @@
         </javadoc>
     </target>
 
-    <target name="main" depends="clean,run"/>
+    <target name="main" depends="clean,compile"/>
 
 </project>

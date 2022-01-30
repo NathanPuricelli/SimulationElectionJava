@@ -23,7 +23,7 @@ public class Simulation {
     /**
      * Constructeur de la classe simulation.
      * Lit le fichier de configuration pour mettre les bons paramètres de simulation.
-     * @throws IOException
+     * @throws IOException Exception si problème avec le fichier de configuration.
      */
     public Simulation() throws IOException{
         ReadConfig properties = new ReadConfig(); //Classe pour la lecture du fichier de configuration
