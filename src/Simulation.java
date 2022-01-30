@@ -54,7 +54,7 @@ public class Simulation {
             System.out.println("Choisissez une action à réalier : ");
             System.out.println("\t1 : Affichage des candidats");
             System.out.println("\t2 : Election");
-            System.out.println("\t3 : Interactions socio politique");
+            System.out.println("\t3 : Interactions socio politiques");
             System.out.println("\t4 : Sondages pour modifier les opinions.");
             System.out.println("\t0 : Quitter la simulation");
             choixAction = Integer.parseInt(System.console().readLine());
