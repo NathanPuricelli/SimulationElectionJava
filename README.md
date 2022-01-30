@@ -21,3 +21,5 @@ Comment générer la javadoc :
         -Depuis un terminal : $> ant documentation
     -Sans ant :
         -Depuis un terminal à la racine du projet : $>javadoc -d doc - sourcepath src/*.java src/Personnes/*.java src/Scrutin/*.java src/Dynamique/*.java
+
+Lien du projet sur la forge Lyon1 : https://forge.univ-lyon1.fr/p1907453/simulationelection
