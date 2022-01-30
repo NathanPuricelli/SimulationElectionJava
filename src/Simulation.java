@@ -155,7 +155,7 @@ public class Simulation {
      * Gère les paramètres d'une interraction entre personnes et affiche ce qui en découle.
      */
     private void Interraction(){
-        InterractionsSocioPolitique inter = new InterractionsSocioPolitique();
+        InteractionsSocioPolitique inter = new InteractionsSocioPolitique();
         int nbIterations=-1;
         do {
             Simulation.clrscr();

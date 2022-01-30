@@ -9,7 +9,7 @@ import Personnes.*;
  * Classe gérant les différentes interactions sociopolitiques
  * @author Nathan Puricelli, Aymeric Leto
  */
-public class InterractionsSocioPolitique {
+public class InteractionsSocioPolitique {
 
     /**
      * Interaction politique au sein des membres d'une simulation
