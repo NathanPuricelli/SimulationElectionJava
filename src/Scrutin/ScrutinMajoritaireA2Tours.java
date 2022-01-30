@@ -4,6 +4,10 @@ import Personnes.*;
 import java.util.Map;
 import java.util.Vector;
 
+/**
+ * Extension de la classe Scrutin pour une election majoritaire à 2 tours avec deux finalistes au second tour.
+ * @author Nathan Puricelli, Aymeric Leto
+ */
 public class ScrutinMajoritaireA2Tours extends Scrutin{
     public ResultatScrutin voter(Vector<Electeur> liste_electeurs,  Vector<Candidat> liste_candidats){
         ScrutinMajoritaireA1Tour s = new ScrutinMajoritaireA1Tour();
@@ -27,6 +31,11 @@ public class ScrutinMajoritaireA2Tours extends Scrutin{
         return resultat2ndTour;
     }
 
+    /**
+     * Affiche les résultats du premier tour de l'election
+     * @param res Résultat du premier tour de l'election
+     * @param liste_candidats Liste des candidats de l'election
+     */
     private void afficherPremierTour(ResultatScrutin res, Vector<Candidat> liste_candidats){
         System.out.println("\tRésultat du premier tour : \n");
 
@@ -37,6 +46,13 @@ public class ScrutinMajoritaireA2Tours extends Scrutin{
         System.out.println();
     }
 
+    /**
+     * Fonction qui retourne le candidat duquel l'electeur est le plus proche
+     * @param e L'electeur a qui appartient le classement
+     * @param liste_candidats Les candidats de l'election.
+     * @return liste classée des candidats préférés de la personne
+     * @return null, si aucun candidat n'est satisfaisant (Vote blanc)
+     */
     private Candidat getVoteElecteur(Electeur e, Vector<Candidat> liste_candidats){
         Candidat meilleur = liste_candidats.get(0);
         for(Candidat c : liste_candidats) {

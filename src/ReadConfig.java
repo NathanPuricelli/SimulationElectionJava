@@ -1,7 +1,3 @@
-/**
- * @author Nathan Puricelli et Aymeric Leto
- * Fichier de la classe ReadConfig
- */
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +6,9 @@ import java.util.Map;
 import java.util.Properties;
  
 /**
- * @class Cette classe sert à lire le fichier de configuration avec les paramètres de la simulation
+ * Cette classe sert à lire le fichier de configuration avec les paramètres de la simulation
+ * Le fichier à lire est config.properties.
+ * @author Nathan Puricelli, Aymeric Leto
  */
 public class ReadConfig {
     
@@ -21,7 +19,7 @@ public class ReadConfig {
 	 * @throws IOException
 	 */
 	public Map<String, String> getPropValues() throws IOException {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(); // Assotiation de key / values du fichier de properties.
 		try {
 			Properties prop = new Properties();
 			String propFileName = "config.properties";

@@ -5,8 +5,18 @@ import java.util.Vector;
 
 import Personnes.*;
 import Scrutin.*;
+
+/**
+ * Classe représentant un sondage. Un sondage est une élection fictice qui influe sur les opinions des electeurs
+ * @author Nathan Puricelli, Aymeric Leto 
+ */
 public class Sondage {
 
+    /**
+     * S'occupe du cas du sondage dans lequel l'electeur va vers son candidat préféré parmi les 3 premiers d'un sondage
+     * @param liste_electeur Liste des electeurs de la simulation
+     * @param liste_candidat Liste des candidats de la simulation
+     */
     public void AllerVersLeMeilleurDansLes3Premiers(Vector<Electeur> liste_electeur, Vector<Candidat> liste_candidat){
         ResultatScrutin res = this.choixScrutinSondage(liste_electeur, liste_candidat);
         for (Electeur e : liste_electeur){
@@ -20,6 +30,11 @@ public class Sondage {
 
     }
 
+    /**
+     * S'occupe du cas du sondage dans lequel l'electeur va vers le candidat le plus utile après un sondage
+     * @param liste_electeur Liste des electeurs de la simulation
+     * @param liste_candidat Liste des candidats de la simulation
+     */
     public void AllerVersLePlusUtile(Vector<Electeur> liste_electeur, Vector<Candidat> liste_candidat){
         ResultatScrutin res = this.choixScrutinSondage(liste_electeur, liste_candidat);
         for (Electeur e : liste_electeur){
@@ -38,6 +53,11 @@ public class Sondage {
 
     }
 
+    /**
+     * S'occupe du cas du sondage dans lequel l'electeur va vers les candidats les plus utiles proportionellement à leur utilité.
+     * @param liste_electeur Liste des electeurs de la simulation
+     * @param liste_candidat Liste des candidats de la simulation
+     */
     public void AllerVersLesPlusUtiles(Vector<Electeur> liste_electeur, Vector<Candidat> liste_candidat){
         ResultatScrutin res = this.choixScrutinSondage(liste_electeur, liste_candidat);
         for (Electeur e : liste_electeur){

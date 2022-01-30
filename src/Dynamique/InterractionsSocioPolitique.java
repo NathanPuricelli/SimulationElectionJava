@@ -5,8 +5,17 @@ import java.util.Vector;
 
 import Personnes.*;
 
+/**
+ * Classe gérant les différentes interactions sociopolitiques
+ * @author Nathan Puricelli, Aymeric Leto
+ */
 public class InterractionsSocioPolitique {
 
+    /**
+     * Interaction politique au sein des membres d'une simulation
+     * @param liste_electeur Liste des electeurs
+     * @param liste_candidat Liste des candidats
+     */
     public void interagir(Vector<Electeur> liste_electeur, Vector<Candidat> liste_candidat){
         for(Electeur e : liste_electeur){
             Random r = new Random();

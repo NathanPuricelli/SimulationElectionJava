@@ -1,7 +1,3 @@
-/**
- * @author Nathan Puricelli et Aymeric Leto
- * Fichier principal de la classe traitant la simulation
- */
 import java.util.Vector;
 
 import Dynamique.*;
@@ -12,33 +8,44 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * @class Cette classe est la classe qui gère la simulation.
+ * Cette classe est la classe qui gère la simulation.
+ * Elle possède les paramètres de la simulation (les tableaux de candidats et d'electeurs)
+ * @author Nathan Puricelli, Aymeric Leto
  */
 public class Simulation {
-    /// Liste des electeurs sous forme de Java vector (tableau dynamique)
+    
+    /**Liste des candidats de la simulation */
     private Vector<Electeur> liste_electeurs;
-    private Vector<Candidat> liste_candidats;
-    private int nbElecteurs;
-    private int nbCandidats;
 
+    /**Liste des candidats de la simulation */
+    private Vector<Candidat> liste_candidats;
+
+    /**
+     * Constructeur de la classe simulation.
+     * Lit le fichier de configuration pour mettre les bons paramètres de simulation.
+     * @throws IOException
+     */
     public Simulation() throws IOException{
         ReadConfig properties = new ReadConfig(); //Classe pour la lecture du fichier de configuration
         
         Map<String, String> map = properties.getPropValues(); // Données du fichier de configuration
-        this.nbElecteurs = Integer.parseInt(map.get("nombreElecteurs"));
-        this.nbCandidats = Integer.parseInt(map.get("nombreCandidats"));
+        
         this.liste_candidats = new Vector<Candidat>();
         this.liste_electeurs = new Vector<Electeur>();
 
-        for (int i = 0; i<this.nbElecteurs; i++){
+        for (int i = 0; i<Integer.parseInt(map.get("nombreElecteurs")); i++){
             liste_electeurs.add(new Electeur());
         }
-        for (int j = 0; j<this.nbCandidats; j++){
+        for (int j = 0; j<Integer.parseInt(map.get("nombreCandidats")); j++){
             liste_candidats.add(new Candidat());
         }
 
     }
 
+    /**
+     * Méthode principale du projet.
+     * Gère l'affichage des boites de dialogue et les choix de la simulation
+     */
     public void simuler(){
         int choixAction=-1;
         do {
@@ -80,6 +87,9 @@ public class Simulation {
         this.simuler();
     }
 
+    /**
+     * Affiche les candidats et leurs opinions.
+     */
     private void afficherCandidats(){
         for(Candidat c : liste_candidats){
             c.afficherOpinions();
@@ -93,6 +103,9 @@ public class Simulation {
 
     }
 
+    /**
+     * Gère les paramètres d'une élection et affiche son résultat
+     */
     private void election(){
         Scrutin s;
         int choixAction=-1;
@@ -138,6 +151,9 @@ public class Simulation {
         s.afficherResultats(result, this.liste_candidats);       
     }
 
+    /**
+     * Gère les paramètres d'une interraction entre personnes et affiche ce qui en découle.
+     */
     private void Interraction(){
         InterractionsSocioPolitique inter = new InterractionsSocioPolitique();
         int nbIterations=-1;
@@ -162,6 +178,9 @@ public class Simulation {
         if (choixAction != 1){System.exit(0);}
     }
 
+    /**
+     * Gère les paramètres des sondages
+     */
     private void Sondage(){
         Sondage sond = new Sondage();
         int choixTypeSondage=-1;
@@ -194,6 +213,9 @@ public class Simulation {
 
     }
 
+    /**
+     * Fonction effacant l'écran de la console, pour améliorer l'expérience utilisateur.
+     */
     public static void clrscr(){
         //Efface la console
         try {

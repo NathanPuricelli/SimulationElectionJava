@@ -7,14 +7,19 @@ import java.util.Vector;
 import Personnes.Candidat;
 import Personnes.Electeur;
 
+/**
+ * Extension de la classe Scrutin pour un vote alternatif
+ * @author Nathan Puricelli, Aymeric Leto
+ */
 public class ScrutinAlternatif extends Scrutin {
+    @Override
     public ResultatScrutin voter( Vector<Electeur> liste_electeurs,  Vector<Candidat> liste_candidats){
         int tour = 1;
         ResultatScrutin resultat = new ResultatScrutin(liste_candidats);
         Vector<Candidat> enLice = new Vector<Candidat>(liste_candidats);
         while (enLice.size()>1){
             Map<Candidat, Integer> nombreVotes = new HashMap<Candidat, Integer>();
-            for(Candidat c : enLice){
+            for(Candidat c : enLice){ // remplissage du mapping
                 nombreVotes.put(c, 0);
             }
             for(Electeur e : liste_electeurs){

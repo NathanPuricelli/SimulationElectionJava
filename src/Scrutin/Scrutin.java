@@ -4,9 +4,24 @@ import Personnes.*;
 import java.util.Map;
 import java.util.Vector;
 
+/**
+ * Classe abstraire de Scrutin. Définit une méthode abstraite de vote et un affichage du résultat.
+ * @author Nathan Puricelli, Aymeric Leto
+ */
 public abstract class Scrutin {
+    /**
+     * Fait voter les electeurs pour des candidats en fonction du type de scrutin
+     * @param liste_electeur Liste des electeurs
+     * @param liste_candidats Liste des candidats
+     * @return ResultatScrutin, les informations du résultat du scrutin
+     */
     public abstract ResultatScrutin voter( Vector<Electeur> liste_electeur,  Vector<Candidat> liste_candidats);
 
+    /***
+     * Affiche le résultat du scrutin.
+     * @param res resultat du scutin
+     * @param liste_candidats Liste des candidats
+     */
     public void afficherResultats(ResultatScrutin res, Vector<Candidat> liste_candidats )
     {
         System.out.println("\tRésultat de l'élection :\n");

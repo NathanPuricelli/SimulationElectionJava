@@ -1,10 +1,20 @@
 package Personnes;
 
+/**
+ * Extension de la classe personne pour un électeur
+ * @author Nathan Puricelli, Aymeric Leto
+ */
 public class Electeur extends Personnes {
+    /**Variable de classe qui suit le numéro des electeurs */
     private static int identifiant = 1;
+
+    /**Numéro (identifiant) de l'electeur */
     private int id;
+
+    /**Nom de l'electeur */
     private String nom;
     
+    /**Constructeur de Electeur */
     public Electeur(){
         super();
         this.id = Electeur.identifiant;
@@ -16,6 +26,7 @@ public class Electeur extends Personnes {
     /**
      * Calcule la distance entre les opinions de deux personnes
      * Se base sur la norme 2 en dimension 6
+     * @param pers Personne avec laquelle la distance est mesurée
      */
     public float getDistanceFromOtherPerson(Personnes pers){
         
@@ -30,6 +41,11 @@ public class Electeur extends Personnes {
         return distance;
     }
 
+    /**
+     * Rapproche les opinions de l'electeur vers ceux d'une personne p
+     * @param p personne de qui l'electeur se rapproche
+     * @param force inverse de Intensité avec laquelle l'electeur se rapproche 
+     */
     public void Rapprochement(Personnes p, float force){
         float distanceConservatisme = this.Conservatisme.getValue() - p.getConservatisme().getValue();
         this.Conservatisme.setValue(((this.Conservatisme.getValue() - distanceConservatisme) * force) / (5*force));
@@ -45,6 +61,10 @@ public class Electeur extends Personnes {
         this.Capitalisme.setValue(this.Capitalisme.getValue() - distanceCapitalisme / (5*force));    
     }
 
+    /**
+     * Eloigne les opinions de l'electeur de ceux d'une personne p
+     * @param p personne de qui l'electeur s'éloigne
+     */
     public void Eloignement(Personnes p){
         float distanceConservatisme = this.Conservatisme.getValue() - p.getConservatisme().getValue();
         this.Conservatisme.setValue(this.Conservatisme.getValue() + distanceConservatisme / 5);
@@ -73,6 +93,15 @@ public class Electeur extends Personnes {
 
     }
 
+    /**
+     * Getter de l'id de l'electeur
+     * @return L'id de l'electeur
+     */
     public int getID(){return this.id;}
+
+    /**
+     * Getter du nom de l'electeur
+     * @return le nom de l'electeur
+     */
     public String getNom(){return this.nom;}
 }

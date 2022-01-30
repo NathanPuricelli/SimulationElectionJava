@@ -1,7 +1,7 @@
 import java.io.IOException;
 /**
  * <b>Classe principale du programme appelée lors de l'execution
- * @author Nathan Puricelli
+ * @author Nathan Puricelli, Aymeric Leto
  */
 public class Main {
 

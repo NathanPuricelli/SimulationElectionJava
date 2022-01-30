@@ -5,7 +5,12 @@ import java.util.Vector;
 import Personnes.Candidat;
 import Personnes.Electeur;
 
+/**
+ * Extension de la classe Scrutin pour un vote par approbation
+ * @author Nathan Puricelli, Aymeric Leto
+ */
 public class ScrutinApprobation extends Scrutin{
+    @Override
     public ResultatScrutin voter( Vector<Electeur> liste_electeurs,  Vector<Candidat> liste_candidats){
         ResultatScrutin resultat = new ResultatScrutin(liste_candidats);
         for (Electeur e : liste_electeurs){
@@ -22,6 +27,12 @@ public class ScrutinApprobation extends Scrutin{
         return resultat;        
     }
 
+    /**
+     * Fonction qui retourne les candidats satisfaisants pour un electeur
+     * @param e L'electeur a qui appartient le classement
+     * @param liste_candidats Les candidats de l'election.
+     * @return liste des candidats satisfaisants pour l'electeur
+     */
     private Vector<Candidat> getTabVoteElecteur(Electeur e, Vector<Candidat> liste_candidats){
         Vector<Candidat> tabVote = new Vector<Candidat>();
         for(Candidat c : liste_candidats) {
