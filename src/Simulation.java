@@ -4,6 +4,7 @@
  */
 import java.util.Vector;
 
+import Dynamique.InterractionsSocioPolitique;
 import Personnes.Candidat;
 import Personnes.Electeur;
 import Scrutin.*;
@@ -47,10 +48,11 @@ public class Simulation {
             System.out.println("Choisissez une action à réalier : ");
             System.out.println("\t1 : Affichage des candidats");
             System.out.println("\t2 : Election");
+            System.out.println("\t3 : Interactions socio politique");
             System.out.println("\t0 : Quitter la simulation");
             choixAction = Integer.parseInt(System.console().readLine());
 
-        } while (choixAction != 0 && choixAction!=1 && choixAction !=2);
+        } while (choixAction != 0 && choixAction!=1 && choixAction !=2 && choixAction !=3);
         switch (choixAction) {
             case 1:
                 this.afficherCandidats();
@@ -58,6 +60,10 @@ public class Simulation {
             
             case 2:
                 this.election();
+                break;
+            
+            case 3:
+                this.Interraction();
                 break;
 
             case 0:
@@ -83,7 +89,7 @@ public class Simulation {
 
     }
 
-    public void election(){
+    private void election(){
         Scrutin s;
         int choixAction=-1;
         do {
@@ -126,6 +132,30 @@ public class Simulation {
         if (s == null){return;} // Si on arrete le programme (scrutin n'est pas initialisé, on sort de la fonction)
         ResultatScrutin result = s.voter(this.liste_electeur, this.liste_candidats);
         s.afficherResultats(result, this.liste_candidats);       
+    }
+
+    private void Interraction(){
+        InterractionsSocioPolitique inter = new InterractionsSocioPolitique();
+        int nbIterations=-1;
+        do {
+            Simulation.clrscr();
+            System.out.println("\t\tBienvenue dans le menu d'interaction socio politique : ");
+            System.out.println("Choisissez le nombre d'interactions par candidat entre 1 et 5 : ");
+            System.out.println("Choisissez 0 pour revenir au menu");           
+            nbIterations = Integer.parseInt(System.console().readLine());
+        } while (nbIterations != 0 && nbIterations!=1 && nbIterations!=2 && nbIterations!=3 && nbIterations!=4 && nbIterations!=5);
+        while (nbIterations > 0){
+            System.out.println("Interactions restantes : " + nbIterations);
+            inter.interagir(liste_electeur, liste_candidats);
+            System.out.println("Appuyez pour continuer");
+            System.console().readLine();
+            nbIterations--;
+        }
+        int choixAction=-1;
+        System.out.println("\t1 : Retour au Menu");
+        System.out.println("\t0 : Quitter la simulation");
+        choixAction = Integer.parseInt(System.console().readLine());
+        if (choixAction != 1){System.exit(0);}
     }
 
     public static void clrscr(){

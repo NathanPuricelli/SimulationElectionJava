@@ -1,6 +1,6 @@
 package Personnes;
 
-abstract class Personnes {
+public abstract class Personnes {
     protected Axe_politique Reformisme;//Revolution(0) ou Reformisme(1)
     protected Axe_politique Productivisme; //Ecologie(0) ou productivisme(1) 
     protected Axe_politique Conservatisme;//Progressisme(0) ou conservatisme(1)
@@ -25,6 +25,8 @@ abstract class Personnes {
         System.out.println("Nationalisme : " + Nationalisme.getValue());
         System.out.println("Capitalisme : " + Capitalisme.getValue());
     }
+
+    public abstract String getNom();
 
     public Axe_politique getReformisme(){return this.Reformisme;}
     public Axe_politique getProductivisme(){return this.Productivisme;}
