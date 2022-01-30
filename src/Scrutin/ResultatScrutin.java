@@ -11,7 +11,7 @@ import java.util.Vector;
 public class ResultatScrutin {
     private Map<Candidat, Integer> resultat;
     private int nbVotesBlanc;
-    private Map<Integer,Candidat> classement; // classement des candidarts avec le mapping : Candidat ID, Classement
+    private Map<Integer,Candidat> classement; // classement des candidarts avec le mapping : rang, candidat
     private Candidat vainqueurAlternatif;
 
     public ResultatScrutin(Vector<Candidat> liste_candidats){
@@ -56,6 +56,14 @@ public class ResultatScrutin {
             res2.remove(max);
             restants.remove(max);
         }
+    }
+
+    public void afficherResultatSondage(){
+        System.out.println("\tRésultat du sondage : ");
+        for(Map.Entry<Integer, Candidat> entry : this.classement.entrySet()){
+            System.out.println(entry.getValue().getNom() + " : " + this.resultat.get(entry.getValue()) + " Votes");
+        }
+        if(this.nbVotesBlanc>0){System.out.println("Nombre de votes blanc : " + this.nbVotesBlanc);}            
     }
 
     public Map<Candidat, Integer> getResultat(){return this.resultat;}

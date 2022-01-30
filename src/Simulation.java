@@ -4,9 +4,8 @@
  */
 import java.util.Vector;
 
-import Dynamique.InterractionsSocioPolitique;
-import Personnes.Candidat;
-import Personnes.Electeur;
+import Dynamique.*;
+import Personnes.*;
 import Scrutin.*;
 
 import java.io.IOException;
@@ -17,7 +16,7 @@ import java.util.Map;
  */
 public class Simulation {
     /// Liste des electeurs sous forme de Java vector (tableau dynamique)
-    private Vector<Electeur> liste_electeur;
+    private Vector<Electeur> liste_electeurs;
     private Vector<Candidat> liste_candidats;
     private int nbElecteurs;
     private int nbCandidats;
@@ -29,10 +28,10 @@ public class Simulation {
         this.nbElecteurs = Integer.parseInt(map.get("nombreElecteurs"));
         this.nbCandidats = Integer.parseInt(map.get("nombreCandidats"));
         this.liste_candidats = new Vector<Candidat>();
-        this.liste_electeur = new Vector<Electeur>();
+        this.liste_electeurs = new Vector<Electeur>();
 
         for (int i = 0; i<this.nbElecteurs; i++){
-            liste_electeur.add(new Electeur());
+            liste_electeurs.add(new Electeur());
         }
         for (int j = 0; j<this.nbCandidats; j++){
             liste_candidats.add(new Candidat());
@@ -49,10 +48,11 @@ public class Simulation {
             System.out.println("\t1 : Affichage des candidats");
             System.out.println("\t2 : Election");
             System.out.println("\t3 : Interactions socio politique");
+            System.out.println("\t4 : Sondages pour modifier les opinions.");
             System.out.println("\t0 : Quitter la simulation");
             choixAction = Integer.parseInt(System.console().readLine());
 
-        } while (choixAction != 0 && choixAction!=1 && choixAction !=2 && choixAction !=3);
+        } while (choixAction != 0 && choixAction!=1 && choixAction !=2 && choixAction !=3 && choixAction !=4);
         switch (choixAction) {
             case 1:
                 this.afficherCandidats();
@@ -64,6 +64,10 @@ public class Simulation {
             
             case 3:
                 this.Interraction();
+                break;
+            
+            case 4:
+                this.Sondage();
                 break;
 
             case 0:
@@ -130,7 +134,7 @@ public class Simulation {
                 break;
         }
         if (s == null){return;} // Si on arrete le programme (scrutin n'est pas initialisé, on sort de la fonction)
-        ResultatScrutin result = s.voter(this.liste_electeur, this.liste_candidats);
+        ResultatScrutin result = s.voter(this.liste_electeurs, this.liste_candidats);
         s.afficherResultats(result, this.liste_candidats);       
     }
 
@@ -146,7 +150,7 @@ public class Simulation {
         } while (nbIterations != 0 && nbIterations!=1 && nbIterations!=2 && nbIterations!=3 && nbIterations!=4 && nbIterations!=5);
         while (nbIterations > 0){
             System.out.println("Interactions restantes : " + nbIterations);
-            inter.interagir(liste_electeur, liste_candidats);
+            inter.interagir(liste_electeurs, liste_candidats);
             System.out.println("Appuyez pour continuer");
             System.console().readLine();
             nbIterations--;
@@ -158,8 +162,40 @@ public class Simulation {
         if (choixAction != 1){System.exit(0);}
     }
 
+    private void Sondage(){
+        Sondage sond = new Sondage();
+        int choixTypeSondage=-1;
+        do {
+            Simulation.clrscr();
+            System.out.println("\t\tBienvenue dans le menu de simulation : ");
+            System.out.println("Choisissez le type d'effet du sondage : ");
+            System.out.println("\t1 : L'electeur se déplace vers son préféré parmi les 3 premiers");
+            System.out.println("\t2 : L'electeur se déplace vers le candidat le plus utile ");
+            System.out.println("\t3 : L'electeur se déplace vers les candidats les plus utiles en fonction de leur utilité");
+            System.out.println("\t0 : Quitter la simulation");          
+            choixTypeSondage = Integer.parseInt(System.console().readLine());
+        } while (choixTypeSondage != 0 && choixTypeSondage!=1 && choixTypeSondage!=2 && choixTypeSondage!=3);
+        switch (choixTypeSondage) {
+            case 1:
+                sond.AllerVersLeMeilleurDansLes3Premiers(this.liste_electeurs, this.liste_candidats);
+                break;
+            case 2:
+                sond.AllerVersLePlusUtile(this.liste_electeurs, this.liste_candidats);
+                break;
+            case 3:
+                sond.AllerVersLesPlusUtiles(this.liste_electeurs, this.liste_candidats);
+                break;
+            
+            default:
+                break;
+        }
+        System.out.println("Fin du sondage, les opinions ont été modifiés \nAppuyez pour continuer");
+        System.console().readLine();
+
+    }
+
     public static void clrscr(){
-        //Clears Screen in java
+        //Efface la console
         try {
             if (System.getProperty("os.name").contains("Windows"))
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();

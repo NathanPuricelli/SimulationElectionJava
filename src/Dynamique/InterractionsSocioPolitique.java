@@ -39,7 +39,7 @@ public class InterractionsSocioPolitique {
         }
         else{
             // On rapproche les opinions
-            e.Rapprochement(p);
+            e.Rapprochement(p, 1);
             System.out.println("L'electeur " + e.getID() + " se rapproche de " + p.getNom());
         }
     }

@@ -30,19 +30,19 @@ public class Electeur extends Personnes {
         return distance;
     }
 
-    public void Rapprochement(Personnes p){
+    public void Rapprochement(Personnes p, float force){
         float distanceConservatisme = this.Conservatisme.getValue() - p.getConservatisme().getValue();
-        this.Conservatisme.setValue(this.Conservatisme.getValue() - distanceConservatisme / 5);
+        this.Conservatisme.setValue(((this.Conservatisme.getValue() - distanceConservatisme) * force) / (5*force));
         float distanceJustice = this.Justice.getValue() - p.getJustice().getValue();
-        this.Justice.setValue(this.Justice.getValue() - distanceJustice / 5);
+        this.Justice.setValue(this.Justice.getValue() - distanceJustice / (5*force));
         float distanceProductivisme = this.Productivisme.getValue() - p.getProductivisme().getValue();
-        this.Productivisme.setValue(this.Productivisme.getValue() - distanceProductivisme / 5);
+        this.Productivisme.setValue(this.Productivisme.getValue() - distanceProductivisme / (5*force));
         float distanceReformisme = this.Reformisme.getValue() - p.getReformisme().getValue();
-        this.Reformisme.setValue(this.Reformisme.getValue() - distanceReformisme / 5);
+        this.Reformisme.setValue(this.Reformisme.getValue() - distanceReformisme / (5*force));
         float distanceNationalisme = this.Nationalisme.getValue() - p.getNationalisme().getValue();
-        this.Nationalisme.setValue(this.Nationalisme.getValue() - distanceNationalisme / 5);
+        this.Nationalisme.setValue(this.Nationalisme.getValue() - distanceNationalisme / (5*force));
         float distanceCapitalisme = this.Capitalisme.getValue() - p.getCapitalisme().getValue();
-        this.Capitalisme.setValue(this.Capitalisme.getValue() - distanceCapitalisme / 5);    
+        this.Capitalisme.setValue(this.Capitalisme.getValue() - distanceCapitalisme / (5*force));    
     }
 
     public void Eloignement(Personnes p){

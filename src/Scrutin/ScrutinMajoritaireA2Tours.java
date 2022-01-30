@@ -16,11 +16,9 @@ public class ScrutinMajoritaireA2Tours extends Scrutin{
             Candidat c = this.getVoteElecteur(e, Finalistes);
             if (c == null) {
                 resultat2ndTour.ajouterVoteBlanc();
-                System.out.println("Blanc");
             }
             else {
                 resultat2ndTour.ajouterVote(c);
-                System.out.println("Vote");
 
             }
         }
